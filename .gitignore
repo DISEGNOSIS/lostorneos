@@ -1,1 +1,4 @@
 /imagenes/*
+*.log
+/*.log
+/*/*.log
