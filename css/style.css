@@ -289,13 +289,6 @@ footer {
 	color: #FFA933;
 }
 
-.formulario label {
-	flex: 0.14;
-	text-align: right;
-	margin-right: 13px;
-	margin-left: -14%;
-}
-
 .formulario input, .formulario select {
 	flex: 0.5;
 	font-size: 1em;
@@ -368,15 +361,6 @@ footer {
  		font-size: 0.7em;
 	}
 
-	.formulario label {
-		flex: 0.3;
-		margin-left: -29%;
-	}
-
-	.registro label {
-		margin-left: -13%;
-	}
-
 	.checkbox {
 		margin-left: 25%;
 	}
@@ -397,10 +381,6 @@ footer {
 		flex-flow: row wrap;
 		justify-content:center;
 	 }
-
-	 .registro label {
- 			margin-left: -9%;
- 	 }
 
 	.checkbox {
 		margin-left: 15%;
@@ -442,14 +422,6 @@ footer {
   nav li a {
     font-size: .75em;
   }
-
-	.formulario label {
-		flex: 0.4;
-	}
-
-	.registro label {
-		 margin-left: -17%;
-	}
 
 	.checkbox {
 		margin-left: 21%;
@@ -502,10 +474,6 @@ footer {
 	 margin-left: auto;
  }
 
- .registro label {
-		margin-left: -3%;
- }
-
 }
 
 @media only screen and (max-width: 485px) {
@@ -555,6 +523,10 @@ header .fila {
 	.campo1 a {
 		margin-right: 0;
 		text-align: center;
+		margin-bottom: 22px;
+	}
+
+	.formulario button:first-child {
 		margin-bottom: 22px;
 	}
 

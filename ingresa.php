@@ -50,12 +50,10 @@
  		<section class="formulario">
  			<form action="" method="post" id="ingreso">
  				<div class="campo">
-					<label for="usuario">Usuario: </label>
-					<input type="text" name="usuario" value="">
+					<input type="text" name="usuario" value="" placeholder="Usuario">
  				</div>
  				<div class="campo">
-					<label for="password">Contraseña: </label>
-					<input type="password" name="password" value="">
+					<input type="password" name="password" value="" placeholder="Contraseña">
  				</div>
  				<div class="campo1">
  					<div class="checkbox">

@@ -50,27 +50,23 @@
  		<section class="formulario registro">
  			<form action="" method="post" id="registro">
  				<div class="campo">
-					<label for="usuario">Usuario: </label>
-					<input type="text" name="usuario" value="">
+					<input type="text" name="usuario" value="" placeholder="Usuario">
  				</div>
  				<div class="campo">
-					<label for="email">e-Mail: </label>
-					<input type="email" name="email" value="">
+					<input type="email" name="email" value="" placeholder="e-Mail">
  				</div>
  				<div class="campo">
-					<label for="password">Contraseña: </label>
-					<input type="password" name="password" value="">
+					<input type="password" name="password" value="" placeholder="Contraseña">
  				</div>
  				<div class="campo">
-					<label for="password-confirm">Confirmar Contraseña: </label>
-					<input type="password" name="password-confirm" value="">
+					<input type="password" name="password-confirm" value="" placeholder="Confirmar Contraseña">
  				</div>
  				<div class="campo">
-					<label for="pais">País: </label>
 					 <select name="pais">
+						<option value="" disabled selected>País</option>
 						<option value="DE">Alemania</option>
 						<option value="DZ">Argelia</option>
-						<option value="AR" selected>Argentina</option>
+						<option value="AR" >Argentina</option>
 						<option value="AM">Armenia</option>
 						<option value="AW">Aruba</option>
 						<option value="AU">Australia</option>
