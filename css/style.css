@@ -1,0 +1,535 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #333 url(../img/fondo.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+ 	font-weight: 400;
+ 	color: #fff;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+header {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+}
+
+header .fila {
+	display: flex;
+ 	flex-flow: row wrap;
+ 	justify-content: space-between;
+ 	align-items: center;
+ 	background: rgba(0,0,0,.8);
+	padding: 13px;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+ margin-bottom: 13px;
+}
+
+#logo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+	flex: 3;
+}
+
+.logo {
+  width: 100%;
+  max-width: 466px;
+  height: auto;
+ 	margin-left: 44%;
+}
+
+main {
+ 	align-self: stretch;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  width: 86%;
+  margin: 13px auto;
+ 	background: rgba(0,0,0,0.8);
+	padding: 0 13px;
+ 	border: 1px solid #000;
+ 	border-radius: 22px;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+}
+
+h1 {
+ text-align: center;
+ font-size: 1.9em;
+ font-weight: 900;
+ text-shadow: 1px 1px 2px #000;
+}
+
+h2{
+ text-align: center;
+ font-size: 1.6em;
+ font-weight: 900;
+ text-shadow: 1px 1px 2px #000;
+}
+
+.activo {
+ background: #af0000 !important;
+}
+
+
+.main-nav {
+  width: 100%;
+}
+	
+.main-nav ul, .usuarios ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-nav li {
+  flex: auto;
+  background: #222;
+	font-family: 'Chewy', cursive;
+ 	font-size: 1.1em;
+  text-align: center;
+  margin-right: 1%;
+ 	border: 1px solid #000;
+  border-radius: 13px 0;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+}
+
+.main-nav li:first-child {
+	margin-left: 1%;
+}
+
+.main-nav li a {
+  display: block;
+  letter-spacing: .1em;
+  color: #fff;
+	text-shadow: 1px 1px 2px #000;
+  line-height: 2.5em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-nav li:hover {
+  background: #333;
+}
+
+.main-nav li a:hover {
+	color: #FFA933;
+}
+
+.ion-navicon-round {
+	display: none;
+}
+
+.usuarios {
+ flex: 1;
+}
+
+.usuarios li {
+  flex: auto;
+ 	font-size: 0.8em;
+ 	font-weight: 900;
+  text-align: center;
+  margin-right: 1%;
+ 	border: 1px solid #000;
+ 	border-radius: 0 13px;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+}
+
+.usuarios li:first-child {
+   background: #FFAA49;
+}
+
+.usuarios li:last-child {
+  background: deepskyblue;
+	margin-right: 0;
+}
+
+.usuarios li a {
+  display: block;
+  letter-spacing: .1em;
+	color: #222;
+ 	text-shadow: 1px 1px 2px #fff;
+  line-height: 2.5em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.usuarios li:first-child:hover {
+  background: #FF8A07;
+}
+
+.usuarios li:last-child:hover {
+  background: DodgerBlue;
+}
+
+.usuarios li a:hover {
+  color: #fff;
+	text-shadow: 1px 1px 2px #000;
+}
+
+.juegos {
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: space-between;
+}
+
+.juegos img {
+ width: 100%;
+ max-width: 226px;
+ height: auto;
+}
+
+footer {
+  flex-shrink: 0;
+  width: 100%;
+  background: #222;
+  border-top: 1px solid #111;
+ 
+}
+
+.sociales {
+	display: flex;
+	justify-content: flex-end;
+	padding: 13px;
+}
+
+.sociales a {
+  font-size: 2em;
+ color: #fff;
+}
+
+.sociales a:hover {
+	color: deepskyblue;
+}
+
+.discord {
+ margin-right: 22px;
+}
+
+
+.disegnosis {
+	background: #111;
+ 	border-top: 1px solid #000;
+ 	height: 33px;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
+}
+
+.campo {
+ 	display: flex;
+ 	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.campo1 {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.campo:last-child {
+	margin-bottom: 22px;
+}
+
+.checkbox {
+	margin-left: 20%;
+	font-size: 1.1em;
+	text-shadow: 1px 1px 2px #000;
+}
+
+.campo p {
+	margin-top: 13px;
+}
+
+.campo1 {
+	margin-top: 13px;
+}
+
+.campo1 a {
+	margin-right: 6%;
+	color: #fff;
+	font-size: 1.1em;
+	text-decoration: none;
+	text-shadow: 1px 1px 2px #000;
+}
+
+.campo1 a:hover {
+	color: #FFA933;
+}
+
+.formulario label {
+	flex: 0.14;
+	text-align: right;
+	margin-right: 13px;
+}
+
+.formulario input, .formulario select {
+	flex: 0.5;
+	font-size: 1em;
+	background: #cecece;
+	padding: 6px;
+	margin-bottom: 13px;
+}
+
+.formulario button {
+	font-size: 1em;
+	color: #fff;
+	text-shadow: 1px 1px 2px #000;
+	border: 1px solid #000;
+	border-radius: 9px;
+	background: #ca0000;
+	padding: 6px 13px;
+	cursor: pointer;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+}
+
+.formulario button:first-child {
+	background: #00b549;
+	margin-right: 13px;
+	font-weight: 900;
+	margin-top: 22px;
+}
+
+.formulario button:hover {
+	color: #111;
+	text-shadow: 1px 1px 2px #fff;
+}
+
+.formulario button:first-child:hover {
+	background: #00fa6b;
+	color: #111;
+	text-shadow: 1px 1px 2px #fff;
+}
+
+
+
+@media only screen and (max-width: 1368px) {
+ 
+	 .logo {
+		 margin-left: 35%;
+	 }
+
+	.formulario label {
+		flex: 0.2;
+	}
+	
+	.checkbox {
+		margin-left: 25%;
+	}
+
+	.campo1 a {
+		margin-right: 5%;
+	}
+ 
+}
+
+@media only screen and (max-width: 1026px) {
+ 
+ .logo {
+	 margin-left: 13%;
+ }
+ 
+ 	.usuarios li {
+ 		font-size: 0.7em;
+	}
+	
+	.formulario label {
+		flex: 0.3;
+	}
+ 
+	.checkbox {
+		margin-left: 34%;
+	}
+
+}
+
+@media only screen and (max-width: 940px) {
+ 
+ 	.logo {
+		margin-left: 0;
+ 	}
+ 
+	nav li a {
+		font-size: .8em;
+	}
+ 
+  .juegos {
+		flex-flow: row wrap;
+		justify-content:center;
+	 }
+	
+	.checkbox {
+		margin-left: 36%;
+	}
+
+	.campo1 a {
+		margin-right: 6%;
+	}
+	
+}
+
+@media only screen and (max-width: 820px) {
+
+	.checkbox {
+		margin-left: 38%;
+	}
+
+	.campo1 a {
+		margin-right: 9%;
+	}
+
+}
+
+@media only screen and (max-width: 772px) {
+ 
+ 	.logo {
+	 max-width: 366px;
+  }
+ 
+	 .usuarios ul {
+	  flex-flow: column nowrap;
+	  justify-content: space-between;
+	}
+
+ 	.usuarios li:first-child {
+  	 margin-bottom: 13px;
+	}
+ 
+  nav li a {
+    font-size: .75em;
+  }
+	
+	.formulario label {
+		flex: 0.4;
+	}
+	
+	.checkbox {
+		margin-left: 20%;
+	}
+
+	.campo1 a {
+		margin-right: 0;
+	}
+	
+}
+
+@media only screen and (max-width: 620px) {
+
+  .container {
+	  width: 95%;
+  }
+  
+  .toggle-nav {
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	background: #222;
+	width: 47px;
+	height: 47px;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 6px;
+  }
+
+  .ion-navicon-round {
+	  display: inherit;
+	  align-self: center;
+  }
+	
+  .main-nav ul {
+  	flex-flow: column;
+  }
+	
+  .main-nav {
+		display: none;
+  }
+	
+  .main-nav li {
+	width: 90%;
+	margin: 0 auto 13px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+ }
+
+  .main-nav li:first-child {
+	 margin-left: auto;
+ }
+ 
+}
+
+@media only screen and (max-width: 485px) {
+ 
+header .fila {
+	display: flex;
+ 	flex-flow: column wrap;
+ 	justify-content: space-between;
+ 	align-items: center;
+ }
+ 	
+ #logo {
+	margin-bottom: 22px;
+  }
+ 
+ .usuarios ul {
+	flex-flow: row nowrap;
+	justify-content: space-between;
+ }
+ 
+  .usuarios li {
+	padding: 3px 22px;
+  }
+ 
+ 	.usuarios li:first-child {
+  	 margin-bottom: 0;
+	 margin-right: 13px;
+	}
+	
+	.campo {
+ 	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+	.campo1 {
+		flex-flow: column wrap;
+		justify-content: center;
+	}
+
+	.checkbox {
+		margin-left: 0;
+		text-align: center;
+		margin-bottom: 13px;
+	}
+	
+	.campo1 a {
+		margin-right: 0;
+		text-align: center;
+		margin-bottom: 22px;
+	}
+
+}
