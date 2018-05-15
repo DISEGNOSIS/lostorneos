@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Registrate en Los Torneos.</title>
+	<title>Ingresá en Los Torneos.</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="fonts/css/fontawesome-all.css">
 	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
 	<link rel="icon" href="img/favicon.png" type="image/x-icon">
   <!--[if lt IE 9]>
   	<script src="js/html5shiv.js"></script>
