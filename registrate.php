@@ -47,7 +47,7 @@
  <main>
  	<article>
  		<h1>Creá tu Cuenta:</h1>
- 		<section class="formulario registro">
+ 		<section class="formulario">
  			<form action="" method="post" id="registro">
  				<div class="campo">
 					<input type="text" name="usuario" value="" placeholder="Usuario">
@@ -63,10 +63,10 @@
  				</div>
  				<div class="campo">
 					 <select name="pais">
-						<option value="" disabled selected>País</option>
+						<option value="" disabled>País</option>
 						<option value="DE">Alemania</option>
 						<option value="DZ">Argelia</option>
-						<option value="AR" >Argentina</option>
+						<option value="AR" selected>Argentina</option>
 						<option value="AM">Armenia</option>
 						<option value="AW">Aruba</option>
 						<option value="AU">Australia</option>
@@ -138,7 +138,7 @@
 				</div>
  			</form>
  			<div class="campo">
-				<p><em>Todos los campos son requeridos.</em></p>
+				<p><em>*&nbsp; Todos los campos son requeridos.</em></p>
 			</div>
  		</section>
  	</article>

@@ -38,6 +38,16 @@ header .fila {
 	margin-bottom: 13px;
 }
 
+.fecha {
+	font-size: 0.8em;
+	color: #eee;
+	text-align: center;
+}
+
+.fecha span:first-of-type {
+	font-size: 1.8em;
+}
+
 #logo {
 	display: flex;
 	flex-flow: row wrap;
@@ -49,7 +59,6 @@ header .fila {
 	width: 100%;
 	max-width: 466px;
 	height: auto;
-	margin-left: 44%;
 }
 
 main {
@@ -75,11 +84,41 @@ h1 {
 	text-shadow: 1px 1px 2px #000;
 }
 
-h2{
+h2 {
 	text-align: center;
 	font-size: 1.6em;
 	font-weight: 900;
 	text-shadow: 1px 1px 2px #000;
+}
+
+h3 {
+	text-align: left;
+	font-size: 1.6em;
+	font-weight: 900;
+	text-shadow: 1px 1px 2px #000;
+	padding-left: 1.3em;
+	margin: 47px auto 13px;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FFA933;
+}
+
+.faq p {
+	padding-left: 5em;
+}
+
+ol {
+	padding-left: 6em;
+}
+
+ol li {
+	margin-bottom: 0.6em;
 }
 
 .activo {
@@ -211,11 +250,15 @@ h2{
 }
 
 footer {
-  flex-shrink: 0;
-  width: 100%;
-  background: #222;
-  border-top: 1px solid #111;
+  	flex-shrink: 0;
+	width: 100%;
+  	background: #222;
+  	border-top: 1px solid #111;
 
+}
+
+footer .fecha {
+	display: none;
 }
 
 .sociales {
@@ -229,11 +272,16 @@ footer {
 	color: #fff;
 }
 
-.sociales a:hover {
-	color: deepskyblue;
+.facebook a:hover {
+	color: #4267b2;
+}
+
+.discord a:hover {
+	color: #8b9dfe;
 }
 
 .discord {
+	padding-top: 3px;
 	margin-right: 22px;
 }
 
@@ -264,7 +312,7 @@ footer {
 }
 
 .checkbox {
-	margin-left: 20%;
+	margin-left: 13%;
 	font-size: 1.1em;
 	text-shadow: 1px 1px 2px #000;
 }
@@ -278,7 +326,7 @@ footer {
 }
 
 .campo1 a {
-	margin-right: 17%;
+	margin-right: 13%;
 	color: #fff;
 	font-size: 1.1em;
 	text-decoration: none;
@@ -333,10 +381,6 @@ footer {
 
 @media only screen and (max-width: 1368px) {
 
-	 .logo {
-		 margin-left: 35%;
-	 }
-
 	.formulario label {
 		flex: 0.2;
 	}
@@ -353,12 +397,8 @@ footer {
 
 @media only screen and (max-width: 1026px) {
 
- .logo {
-	 margin-left: 13%;
- }
-
  	.usuarios li {
- 		font-size: 0.7em;
+ 		font-size: .6em;
 	}
 
 	.checkbox {
@@ -368,20 +408,41 @@ footer {
 }
 
 @media only screen and (max-width: 940px) {
-
- 	.logo {
-		margin-left: 0;
- 	}
-
+	
 	nav li a {
 		font-size: .8em;
 	}
 
+	.usuarios li {
+ 		font-size: .7em;
+	}
+	
   .juegos {
 		flex-flow: row wrap;
 		justify-content:center;
 	 }
+	header .fecha {
+		display: none;
+	}
+	
+	footer .fila {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
+	footer .fecha {
+		display: inherit;
+		font-size: 0.8em;
+		color: #eee;
+		text-align: center;
+		padding-left: 13px;
+	}
+
+	footer .fecha span:first-of-type {
+		font-size: 1.6em;
+	}
+	
 	.checkbox {
 		margin-left: 15%;
 	}
@@ -407,16 +468,16 @@ footer {
 @media only screen and (max-width: 772px) {
 
  	.logo {
-	 max-width: 366px;
+		max-width: 366px;
   }
 
 	 .usuarios ul {
-	  flex-flow: column nowrap;
-	  justify-content: space-between;
+		  flex-flow: column nowrap;
+		  justify-content: space-between;
 	}
 
  	.usuarios li:first-child {
-  	 margin-bottom: 13px;
+  		 margin-bottom: 13px;
 	}
 
   nav li a {
@@ -430,6 +491,19 @@ footer {
 	.campo1 a {
 		margin-right: 0;
 	}
+	
+	h3 {
+		font-size: 1.3em;
+		padding-left: 0;
+	}
+	
+	.faq p {
+		padding-left: 	1em;
+	}
+
+	ol {
+		padding-left: 2em;
+	}
 
 }
 
@@ -440,15 +514,15 @@ footer {
   }
 
   .toggle-nav {
-	align-self: center;
-	display: flex;
-	justify-content: center;
-	background: #222;
-	width: 47px;
-	height: 47px;
-	color: #fff;
-	cursor: pointer;
-	margin-bottom: 6px;
+		align-self: center;
+		display: flex;
+		justify-content: center;
+		background: #222;
+		width: 47px;
+		height: 47px;
+		color: #fff;
+		cursor: pointer;
+		margin-bottom: 6px;
   }
 
   .ion-navicon-round {
@@ -457,7 +531,7 @@ footer {
   }
 
   .main-nav ul {
-  	flex-flow: column;
+ 	 	flex-flow: column;
   }
 
   .main-nav {
@@ -465,14 +539,14 @@ footer {
   }
 
   .main-nav li {
-	width: 90%;
-	margin: 0 auto 13px;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+		width: 90%;
+		margin: 0 auto 13px;
+		border-bottom: 1px solid rgba(255,255,255,0.1);
  }
 
 	.main-nav li:first-child {
-	 margin-left: auto;
- }
+		margin-left: auto;
+ 	}
 
 }
 
@@ -485,29 +559,29 @@ header .fila {
  	align-items: center;
  }
 
- #logo {
-	margin-bottom: 22px;
-  }
+	#logo {
+		margin-bottom: 22px;
+	}
 
- .usuarios ul {
-	flex-flow: row nowrap;
-	justify-content: space-between;
- }
+	.usuarios ul {
+		flex-flow: row nowrap;
+		justify-content: space-between;
+	}
 
-  .usuarios li {
-	padding: 3px 22px;
-  }
+	.usuarios li {
+		padding: 3px 22px;
+	}
 
- 	.usuarios li:first-child {
-  	 margin-bottom: 0;
-	 margin-right: 13px;
+	.usuarios li:first-child {
+		margin-bottom: 0;
+		margin-right: 13px;
 	}
 
 	.campo {
- 	flex-flow: column wrap;
-	justify-content: center;
-	align-items: center;
-}
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+	}
 
 	.campo1 {
 		flex-flow: column wrap;
@@ -530,4 +604,12 @@ header .fila {
 		margin-bottom: 22px;
 	}
 
+}
+
+@media only screen and (max-width: 366px) {
+	
+	footer .fecha {
+		font-size: 0.66em;
+	}
+	
 }
