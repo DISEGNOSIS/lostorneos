@@ -18,13 +18,13 @@
  <header>
  	<div class="fila">
  		<div class="fecha">
-		<time><?php
-			$dias=array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-			$meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-			echo "<span>".date("H:i")."hs</span><br>";
-			echo "<span>".$dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y')."</span";
-			?></time>
-	</div>
+			<time><?php
+				$dias=array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+				$meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+				echo "<span>".date("H:i")."hs</span><br>";
+				echo "<span>".$dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y')."</span";
+				?></time>
+		</div>
 		<div id="logo">
 			<a href="index.php">
 				<img src="img/logo.png" alt="Los Torneos" class="logo">
@@ -52,40 +52,40 @@
 		 </ul>
 	 </nav>
 	</header>
- <main>
- 	<article>
- 		<h1>¡Torneos eSports!</h1>
- 		<h2>Participá, Creá, Administrá y Compartí tus Torneos.</h2>
- 		<section class="juegos">
- 			<figure><img src="img/juegos/counter-strike-go.png" alt="CSGO"></figure>
- 			<figure><img src="img/juegos/fortnite.png" alt="Fortnite"></figure>
- 			<figure><img src="img/juegos/call-of-duty-black-ops-3.png" alt="Call of Duty Black Ops III"></figure>
- 			<figure><img src="img/juegos/league-of-legends.png" alt="League of Legends"></figure>
- 			<figure><img src="img/juegos/rocket-league.png" alt="Rocket League"></figure>
- 		</section>
- 	</article>
- </main>
- <footer>
- <div class="fila">
-		<div class="fecha">
-			<time><?php
-				$dias=array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-				$meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-				echo "<span>".date("H:i")."hs</span><br>";
-				echo "<span>".$dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y')."</span";
-				?></time>
-		</div>
-		<div class="sociales">
-			<div class="discord"><a href="#"><i class="fab fa-discord"></i></a></div>
-			<div class="facebook"><a href="#"><i class="fab fa-facebook-square"></i></a></div>
-		</div>
-	</div>
-	<div class="disegnosis">
-	 <a href="https://www.disegnosis.com.ar" target="_blank">
-						 <img src="img/disegnosis.png" alt="Diseño Web DISEGNOSIS - Webmaster Diseño de Páginas / Sitios Web. Servicios de Hosting.">
-					 </a>
-	 </div>
- </footer>
+	<main>
+		<article>
+			<h1>¡Torneos eSports!</h1>
+			<h2>Participá, Creá, Administrá y Compartí tus Torneos.</h2>
+			<section class="juegos">
+				<figure><img src="img/juegos/counter-strike-go.png" alt="CSGO"></figure>
+				<figure><img src="img/juegos/fortnite.png" alt="Fortnite"></figure>
+				<figure><img src="img/juegos/call-of-duty-black-ops-3.png" alt="Call of Duty Black Ops III"></figure>
+				<figure><img src="img/juegos/league-of-legends.png" alt="League of Legends"></figure>
+				<figure><img src="img/juegos/rocket-league.png" alt="Rocket League"></figure>
+			</section>
+		</article>
+	 </main>
+	 <footer>
+		 <div class="fila">
+				<div class="fecha">
+					<time><?php
+						$dias=array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+						$meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+						echo "<span>".date("H:i")."hs</span><br>";
+						echo "<span>".$dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y')."</span";
+						?></time>
+				</div>
+				<div class="sociales">
+					<div class="discord"><a href="#"><i class="fab fa-discord"></i></a></div>
+					<div class="facebook"><a href="#"><i class="fab fa-facebook-square"></i></a></div>
+				</div>
+			</div>
+			<div class="disegnosis">
+			 <a href="https://www.disegnosis.com.ar" target="_blank">
+								 <img src="img/disegnosis.png" alt="Diseño Web DISEGNOSIS - Webmaster Diseño de Páginas / Sitios Web. Servicios de Hosting.">
+							 </a>
+		 </div>
+	 </footer>
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/menu.js"></script>
