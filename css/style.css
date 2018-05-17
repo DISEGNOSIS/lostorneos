@@ -109,8 +109,12 @@ a:hover {
 	color: #FFA933;
 }
 
-.faq p {
+#faq p {
 	padding-left: 5em;
+}
+
+.respuesta {
+	display: none;
 }
 
 ol {
@@ -484,12 +488,21 @@ footer .fecha {
     font-size: .75em;
   }
 
+	.campo1 {
+		flex-flow: column wrap;
+		justify-content: center;
+	}
+
 	.checkbox {
-		margin-left: 21%;
+		margin-left: 0;
+		text-align: center;
+		margin-bottom: 13px;
 	}
 
 	.campo1 a {
 		margin-right: 0;
+		text-align: center;
+		margin-bottom: 22px;
 	}
 	
 	h3 {
@@ -497,7 +510,7 @@ footer .fecha {
 		padding-left: 0;
 	}
 	
-	.faq p {
+	#faq p {
 		padding-left: 	1em;
 	}
 
@@ -581,23 +594,6 @@ header .fila {
 		flex-flow: column wrap;
 		justify-content: center;
 		align-items: center;
-	}
-
-	.campo1 {
-		flex-flow: column wrap;
-		justify-content: center;
-	}
-
-	.checkbox {
-		margin-left: 0;
-		text-align: center;
-		margin-bottom: 13px;
-	}
-
-	.campo1 a {
-		margin-right: 0;
-		text-align: center;
-		margin-bottom: 22px;
 	}
 
 	.formulario button:first-child {
