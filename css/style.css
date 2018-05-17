@@ -600,6 +600,10 @@ header .fila {
 
 @media only screen and (max-width: 366px) {
 	
+	.campo p {
+		text-align: center;
+		font-size: 0.9em;
+	}
 	footer .fecha {
 		font-size: 0.66em;
 	}
