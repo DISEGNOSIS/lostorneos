@@ -1,21 +1,14 @@
 <?php
-	require_once "class/Usuario.php";
 	require_once "class/Validar.php";
     require_once "class/Json.php";
 	$estilo = "";
 	if($_POST){
 		$validar = new Validar();
 		$errores = $validar->getErrorLogin();
-		$existeUsuario = [];
 		if(empty($errores)) {
-			$usuario = $_POST["usuario"];
-			$password = $_POST["password"];
-			$datosUsuario = new Usuario($usuario, $password);
 			$json = new Json();
-			$existeUsuario = $json->existeUsuarioL($datosUsuario);
-			if(!empty($existeUsuario)) {
-				header("Location: index.php");
-			} else {
+			$errores["login"] = $json->existeUsuarioL();
+			if(!empty($errores["login"])) {
 				$estilo = "error";
 			}
 		} else {
@@ -56,11 +49,20 @@
 				</a>
 			</div>
 			<nav class="usuarios">
-				<ul>
-				 <li class="activo"><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
-				 <li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
-				</ul>
-			</nav>
+			<?php
+				session_start();
+				if(isset($_SESSION["usuario"])) {
+					header("Location: index.php?");
+				} else {
+			?>
+					<ul>
+					<li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
+					<li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
+					</ul>
+			<?php
+				}
+			?>
+		</nav>
 		</div>
 		<a href="#" class="toggle-nav">
 			<span class="ion-navicon-round">
@@ -82,11 +84,13 @@
 			<h1>Ingresá a tu Cuenta:</h1>
 			<section class="formulario">
 				<form action="" method="post" id="ingreso">
+					<div class="error"><?= isset($errores["usuario"]) ? $errores["usuario"]: "" ?></div>
 					<div class="campo">
-						<input type="text" name="usuario" value="" placeholder="Usuario">
+						<input type="text" name="usuario" value="<?= isset($_POST["usuario"]) ? $_POST["usuario"] : "" ?>" placeholder="Usuario">
 					</div>
+					<div class="<?= $estilo ?>"><?= isset($errores["password"]) ? $errores["password"] : "" ?></div>
 					<div class="campo">
-						<input type="password" name="password" value="" placeholder="Contraseña">
+						<input type="password" name="password" value="<?= isset($_POST["password"]) ? $_POST["password"] : "" ?>" placeholder="Contraseña">
 					</div>
 					<div class="<?= $estilo ?>"><?= isset($errores["login"]) ? $errores["login"] : "" ?></div>
 					<div class="campo1">

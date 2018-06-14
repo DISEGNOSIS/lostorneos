@@ -31,11 +31,21 @@
 				</a>
 			</div>
 			<nav class="usuarios">
-				<ul>
-				 <li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
-				 <li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
-				</ul>
-			</nav>
+			<?php
+				session_start();
+				if(isset($_SESSION["usuario"]) || isset($_COOKIE["usuario"])) {
+					echo "<h4>Hola, " . $_SESSION["usuario"] . "!</h4>";
+					echo "<ul><li><a href='logout.php'><i class='fas fa-user-times'>&nbsp; Salir</a></li></ul>";
+				} else {
+			?>
+					<ul>
+					<li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
+					<li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
+					</ul>
+			<?php
+				}
+			?>
+		</nav>
 		</div>
 		<a href="#" class="toggle-nav">
 			<span class="ion-navicon-round">

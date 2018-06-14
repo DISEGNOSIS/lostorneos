@@ -34,7 +34,7 @@
             return $existeUsuario;
         }
 
-        public function existeUsuarioL(Usuario $usuario) {
+        public function existeUsuarioL() {
             $usuariosJSON=file_get_contents(self::ARCHIVO);
             $usuarios=json_decode($usuariosJSON,true);
             $usuarios=$usuarios["usuarios"];
@@ -42,18 +42,24 @@
             for($i=0;$i<count($usuarios);$i++){
                 $usuario=json_decode($usuarios[$i],true);
                 if($usuario["usuario"]==$_POST["usuario"]){
-                if(password_verify($_POST["password"], $usuario["password"])){
-                    echo "<h2>Te logueaste correctamente</h2>";
-                    break;
-                }
+                    if(password_verify($_POST["password"], $usuario["password"])){
+                        if(isset($_POST["recordarme"])) {
+                            setcookie("usuario", $usuario["usuario"], time()+2592000);
+                            setcookie("fotoUsuario", $usuario["fotoUsuario"], time()+2592000);
+                        }
+                        session_start();
+                        $_SESSION["usuario"] = $usuario["usuario"];
+                        $_SESSION["fotoUsuario"] = $usuario["fotoUsuario"];
+                        header("Location: index.php?");
+                    }
                 }
                 if(($usuario["usuario"]!=$_POST["usuario"]) || (!password_verify($_POST["password"], $usuario["password"]))){
-                $error++;
+                    $error++;
                 }
             }
             if($error>=count($usuarios)){
-                echo "<h2>Verificá los datos ingresados!</h2>";
+                return "Verificá los datos ingresados!";
             }
-
+        }
     }
 ?>

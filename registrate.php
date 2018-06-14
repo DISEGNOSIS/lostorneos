@@ -6,7 +6,6 @@
 	if($_POST){
 		$validar = new Validar();
 		$errores = $validar->getErrorRegistro();
-		$existeUsuario = [];
 		if(empty($errores)) {
 			$usuario = $_POST["usuario"];
 			$email = $_POST["email"];
@@ -14,7 +13,7 @@
 			$passwordConfirm = $_POST["passwordConfirm"];
 			$pais = $_POST["pais"];
 			$fotoUsuario = $_FILES["fotoUsuario"];
-			$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);	
+			$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);
 			$json = new Json();
 			$existeUsuario = $json->existeUsuarioR($nuevoUsuario);
 			if(empty($existeUsuario)) {
@@ -62,11 +61,20 @@
 				</a>
 			</div>
 			<nav class="usuarios">
-				<ul>
-				 <li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
-				 <li class="activo"><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
-				</ul>
-			</nav>
+			<?php
+				session_start();
+				if(isset($_SESSION["usuario"])) {
+					header("Location: index.php?");
+				} else {
+			?>
+					<ul>
+					<li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
+					<li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
+					</ul>
+			<?php
+				}
+			?>
+		</nav>
 		</div>
 		<a href="#" class="toggle-nav">
 			<span class="ion-navicon-round">
@@ -88,11 +96,13 @@
 			<h1>Creá tu Cuenta:</h1>
 			<section class="formulario">
 				<form method="post" id="registro" enctype="multipart/form-data">
-				<div class="error"><?= isset($errores["usuario"]) ? $errores["usuario"]: isset($existeUsuario["usuario"]) ? $existeUsuario["usuario"] : "" ?></div>
+				<div class="error"><?= isset($existeUsuario["usuario"]) ? $existeUsuario["usuario"] : "" ?></div>
+				<div class="error"><?= isset($errores["usuario"]) ? $errores["usuario"]: "" ?></div>
 					<div class="campo">
 						<input type="text" name="usuario" value="<?= isset($_POST["usuario"]) ? $_POST["usuario"] : "" ?>" placeholder="Usuario">
 					</div>
-					<div class="<?= $estilo ?>"><?= isset($errores["email"]) ? $errores["email"] : isset($existeUsuario["email"]) ? $existeUsuario["email"] : "" ?></div>
+					<div class="<?= $estilo ?>"><?= isset($existeUsuario["email"]) ? $existeUsuario["email"] : "" ?></div>
+					<div class="<?= $estilo ?>"><?= isset($errores["email"]) ? $errores["email"] : "" ?></div>
 					<div class="campo">
 						<input type="email" name="email" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>" placeholder="e-Mail">
 					</div>

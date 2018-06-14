@@ -192,8 +192,29 @@ ol li {
 	display: none;
 }
 
+.fotoUsuario {
+	float: left;
+	width: 66px;
+	height: 66px;
+	border-radius: 100%;
+	border: 3px solid #fff;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+	margin-top: -13px;
+	margin-right: -22px;
+}
+
 .usuarios {
 	flex: 1;
+}
+
+.usuarios h4 {
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: 900;
+	text-shadow: 1px 1px 2px #000;
+	margin-top: 6px;
 }
 
 .usuarios li {

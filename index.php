@@ -31,10 +31,25 @@
 			</a>
 		</div>
 		<nav class="usuarios">
-			<ul>
-			 <li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
-			 <li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
-			</ul>
+			<?php
+				session_start();
+				if(isset($_COOKIE["usuario"])) {
+					$_SESSION["usuario"] = $_COOKIE["usuario"];
+					$_SESSION["fotoUsuario"] = $_COOKIE["fotoUsuario"];
+				}
+				if(isset($_SESSION["usuario"])) {
+					echo "<img src='" . $_SESSION["fotoUsuario"] . "' alt='Foto Perfil' class='fotoUsuario' />";
+					echo "<h4>Hola, " . $_SESSION["usuario"] . "!</h4>";
+					echo "<ul><li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li></ul>";
+				} else {
+			?>
+					<ul>
+					<li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
+					<li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
+					</ul>
+			<?php
+				}
+			?>
 		</nav>
 	 </div>
 	 <a href="#" class="toggle-nav">

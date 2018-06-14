@@ -30,13 +30,10 @@
         private function login() {
             if(isset($_POST["usuario"]) || isset($_POST["password"])) {
                 if(empty($_POST["usuario"])) {
-                    $this->errorLogin["usuario"] = "Completá el Usuario";
+                    $this->errorLogin["usuario"] = "Ingresá el Usuario";
                 }
                 if(empty($_POST["password"])) {
-                    $this->errorLogin["password"] = "Completá la Contraseña";
-                }
-                if($_POST["passwordConfirm"])) {
-                    $this->errorLogin["passwordConfirm"] = "Completá la Confirmación de Contraseña";
+                    $this->errorLogin["password"] = "Ingresá la Contraseña";
                 }
             } 
         }

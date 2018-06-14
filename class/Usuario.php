@@ -13,10 +13,6 @@
             $this->setPassword($password);
             $this->pais = $pais;
         }
-/*         public function __construct($usuario, $password) {
-            $this->usuario = $usuario;
-            $this->setPassword($password);
-        } */
         private function hashPassword($pass) {
             return password_hash($pass, PASSWORD_BCRYPT);
         }
@@ -26,11 +22,11 @@
                 $nombreViejo = $original["name"];
                 $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION);
                 $nombreNuevo = $original["tmp_name"];
-                $archivoFinal = dirname(__FILE__, 2);
-                $archivoFinal .= "/img/usr/";
-                $archivoFinal .= uniqid() . "." . $extension;
+                $rutaFinal = "img/usr/";
+                $rutaFinal .= uniqid() . "." . $extension;
+                $archivoFinal = dirname(__FILE__, 2) . "/" . $rutaFinal;
                 move_uploaded_file($nombreNuevo, $archivoFinal);
-                return $archivoFinal;
+                return $rutaFinal;
             }
         }
         public function getUsuario() {
