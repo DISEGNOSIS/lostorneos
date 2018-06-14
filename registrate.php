@@ -1,3 +1,34 @@
+<?php
+	require_once "class/Usuario.php";
+	require_once "class/Validar.php";
+    require_once "class/Json.php";
+	$estilo = "";
+	if($_POST){
+		$validar = new Validar();
+		$errores = $validar->getErrorRegistro();
+		$existeUsuario = [];
+		if(empty($errores)) {
+			$usuario = $_POST["usuario"];
+			$email = $_POST["email"];
+			$password = $_POST["password"];
+			$passwordConfirm = $_POST["passwordConfirm"];
+			$pais = $_POST["pais"];
+			$fotoUsuario = $_FILES["fotoUsuario"];
+			$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);	
+			$json = new Json();
+			$existeUsuario = $json->existeUsuarioR($nuevoUsuario);
+			if(empty($existeUsuario)) {
+				$nuevoUsuario->setFotoUsuario($fotoUsuario);
+				$json->guardarUsuario($nuevoUsuario);
+				header("Location: gracias.php");
+			} else {
+				$estilo = "error";
+			}
+		} else {
+			$estilo = "error";
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,18 +87,22 @@
 		<article>
 			<h1>Creá tu Cuenta:</h1>
 			<section class="formulario">
-				<form action="" method="post" id="registro">
+				<form method="post" id="registro" enctype="multipart/form-data">
+				<div class="error"><?= isset($errores["usuario"]) ? $errores["usuario"]: isset($existeUsuario["usuario"]) ? $existeUsuario["usuario"] : "" ?></div>
 					<div class="campo">
-						<input type="text" name="usuario" value="" placeholder="Usuario">
+						<input type="text" name="usuario" value="<?= isset($_POST["usuario"]) ? $_POST["usuario"] : "" ?>" placeholder="Usuario">
 					</div>
+					<div class="<?= $estilo ?>"><?= isset($errores["email"]) ? $errores["email"] : isset($existeUsuario["email"]) ? $existeUsuario["email"] : "" ?></div>
 					<div class="campo">
-						<input type="email" name="email" value="" placeholder="e-Mail">
+						<input type="email" name="email" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>" placeholder="e-Mail">
 					</div>
+					<div class="<?= $estilo ?>"><?= isset($errores["password"]) ? $errores["password"] : "" ?></div>
 					<div class="campo">
-						<input type="password" name="password" value="" placeholder="Contraseña">
+						<input type="password" name="password" value="<?= isset($_POST["password"]) ? $_POST["password"] : "" ?>" placeholder="Contraseña">
 					</div>
+					<div class="<?= $estilo ?>"><?= isset($errores["passwordConfirm"]) ? $errores["passwordConfirm"] : "" ?></div>
 					<div class="campo">
-						<input type="password" name="password-confirm" value="" placeholder="Confirmar Contraseña">
+						<input type="password" name="passwordConfirm" value="<?= isset($_POST["passwordConfirm"]) ? $_POST["passwordConfirm"] : "" ?>" placeholder="Confirmar Contraseña">
 					</div>
 					<div class="campo">
 						 <select name="pais">
@@ -139,6 +174,10 @@
 							<option value="UY">Uruguay</option>
 							<option value="VE">Venezuela</option>
 						</select>
+					</div>
+					<div class="<?= $estilo ?>"><?= isset($errores["fotoUsuario"]) ? $errores["fotoUsuario"] : "" ?></div>
+					<div class="campo">
+						<input type="file" name="fotoUsuario" value="<?= isset($_FILES["fotoUsuario"]["name"]) ? $_FILES["fotoUsuario"]["name"] : "" ?>" accept="image/*">
 					</div>
 					<div class="campo">
 						<button type="submit" form="registro" value="registrarme">Registrarme</button>

@@ -1,35 +1,10 @@
-<?php
-	require_once "class/Usuario.php";
-	require_once "class/Validar.php";
-    require_once "class/Json.php";
-	$estilo = "";
-	if($_POST){
-		$validar = new Validar();
-		$errores = $validar->getErrorLogin();
-		$existeUsuario = [];
-		if(empty($errores)) {
-			$usuario = $_POST["usuario"];
-			$password = $_POST["password"];
-			$datosUsuario = new Usuario($usuario, $password);
-			$json = new Json();
-			$existeUsuario = $json->existeUsuarioL($datosUsuario);
-			if(!empty($existeUsuario)) {
-				header("Location: index.php");
-			} else {
-				$estilo = "error";
-			}
-		} else {
-			$estilo = "error";
-		}
-	}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Ingresá en Los Torneos.</title>
+	<title>Gracias por Registrate en Los Torneos!</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="fonts/css/fontawesome-all.css">
 	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
@@ -57,8 +32,8 @@
 			</div>
 			<nav class="usuarios">
 				<ul>
-				 <li class="activo"><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
-				 <li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
+				 <li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
+				 <li class="activo"><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -79,27 +54,7 @@
 	</header>
 	<main>
 		<article>
-			<h1>Ingresá a tu Cuenta:</h1>
-			<section class="formulario">
-				<form action="" method="post" id="ingreso">
-					<div class="campo">
-						<input type="text" name="usuario" value="" placeholder="Usuario">
-					</div>
-					<div class="campo">
-						<input type="password" name="password" value="" placeholder="Contraseña">
-					</div>
-					<div class="<?= $estilo ?>"><?= isset($errores["login"]) ? $errores["login"] : "" ?></div>
-					<div class="campo1">
-						<div class="checkbox">
-							<input type="checkbox" name="recordarme" value="Recordar">Recordarme
-						</div>
-						<a href="#">Olvidé mi Contraseña</a>
-					</div>
-					<div class="campo">
-						<button type="submit" form="ingreso" value="ingresar">Ingresar</button>
-					</div>
-				</form>
-			</section>
+			<h1>¡Gracias por Registrarte!</h1>
 		</article>
 	</main>
 	<footer>

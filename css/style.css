@@ -258,7 +258,6 @@ footer {
 	width: 100%;
   	background: #222;
   	border-top: 1px solid #111;
-
 }
 
 footer .fecha {
@@ -296,6 +295,15 @@ footer .fecha {
  	display: flex;
  	justify-content: center;
  	align-items: center;
+}
+
+.error {
+	display: flex;
+ 	flex-flow: row nowrap;
+	justify-content: center;
+	font-size: 1.1em;
+	color: #ca0000;
+	font-weight: bold;
 }
 
 .campo {
