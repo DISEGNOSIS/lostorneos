@@ -24,7 +24,8 @@
                 $nombreNuevo = $original["tmp_name"];
                 $rutaFinal = "img/usr/";
                 $rutaFinal .= uniqid() . "." . $extension;
-                $archivoFinal = dirname(__FILE__, 2) . "/" . $rutaFinal;
+                $archivoFinal = dirname(__FILE__) . "/" . $rutaFinal;
+                //$archivoFinal = dirname(__FILE__, 2) . "/" . $rutaFinal;
                 move_uploaded_file($nombreNuevo, $archivoFinal);
                 return $rutaFinal;
             }

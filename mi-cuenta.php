@@ -1,32 +1,15 @@
 <?php
-	require_once "class/Usuario.php";
-	require_once "class/Validar.php";
+
+    require_once "class/Validar.php";
     require_once "class/Json.php";
-	$estilo = "";
-	if($_POST){
-		$validar = new Validar();
-		$errores = $validar->getErrorRegistro();
-		if(empty($errores)) {
-			$usuario = $_POST["usuario"];
-			$email = $_POST["email"];
-			$password = $_POST["password"];
-			$passwordConfirm = $_POST["passwordConfirm"];
-			$pais = $_POST["pais"];
-			$fotoUsuario = $_FILES["fotoUsuario"];
-			$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);
-			$json = new Json();
-			$existeUsuario = $json->existeUsuarioR($nuevoUsuario);
-			if(empty($existeUsuario)) {
-				$nuevoUsuario->setFotoUsuario($fotoUsuario);
-				$json->guardarUsuario($nuevoUsuario);
-				header("Location: gracias.php");
-			} else {
-				$estilo = "error";
-			}
-		} else {
-			$estilo = "error";
-		}
-	}
+    $json = new Json();
+    $datosUsuario = $json->traerUsuario();
+    $usuario = $datosUsuario["usuario"];
+    $email = $datosUsuario["email"];
+    $password = $datosUsuario["password"];
+    $pais = $datosUsuario["pais"];
+    $fotoUsuario = $datosUsuario["fotoUsuario"];   
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +17,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Registrate en Los Torneos.</title>
+	<title>Mi Cuenta en Los Torneos.</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="fonts/css/fontawesome-all.css">
 	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
@@ -61,20 +44,21 @@
 				</a>
 			</div>
 			<nav class="usuarios">
-			<?php
-				session_start();
-				if(isset($_SESSION["usuario"])) {
-					header("Location: index.php?");
-				} else {
-			?>
-					<ul>
-					<li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
-					<li class="activo"><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
-					</ul>
-			<?php
-				}
-			?>
-		</nav>
+                <?php
+                    //session_start();
+                    if(isset($_COOKIE["usuario"])) {
+                        $_SESSION["usuario"] = $_COOKIE["usuario"];
+                        $_SESSION["fotoUsuario"] = $_COOKIE["fotoUsuario"];
+                    }
+                    if(isset($_SESSION["usuario"])) {
+                        echo "<img src='" . $_SESSION["fotoUsuario"] . "' alt='Foto Perfil' class='fotoUsuario' />";
+                        echo "<h4>Hola, " . $_SESSION["usuario"] . "!</h4>";
+                        echo "<ul><li class='activo'><a href='mi-cuenta.php'><i class='fas fa-user-edit'></i>&nbsp; Mi Cuenta</a></li><li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li></ul>";
+                    } else {
+                        header("Location: index.php?");
+                    }
+                ?>
+            </nav>
 		</div>
 		<a href="#" class="toggle-nav">
 			<span class="ion-navicon-round">
@@ -93,28 +77,30 @@
 	</header>
 	<main>
 		<article>
-			<h1>Creá tu Cuenta:</h1>
+			<h1>Mi Cuenta</h1>
 			<section class="formulario">
-				<form method="post" id="registro" enctype="multipart/form-data">
+                <div class="miCuenta">
+                    <img src="<?= $fotoUsuario ?>" alt="Foto Perfil" class="imagenUsuario" />
+                    <div class="datosUsuario">
+                        <h2>Usuario: &nbsp; <span><?= $usuario ?></span></h2>
+                        <h2>e-Mail: &nbsp; <span><?= $email ?></span></h2>
+                        <h2>País: &nbsp; <span><?= $pais == "AR" ? "Argentina" : ""; ?></span></h2>
+                    </div>
+                    
+                </div>
+				<!-- <form method="post" id="editar" enctype="multipart/form-data">
 				<div class="error"><?= isset($existeUsuario["usuario"]) ? $existeUsuario["usuario"] : "" ?></div>
 				<div class="error"><?= isset($errores["usuario"]) ? $errores["usuario"]: "" ?></div>
 					<div class="campo">
-						<input type="text" name="usuario" value="<?= isset($_POST["usuario"]) ? $_POST["usuario"] : "" ?>" placeholder="Usuario">
-					</div>
-					<div class="<?= $estilo ?>"><?= isset($existeUsuario["email"]) ? $existeUsuario["email"] : "" ?></div>
-					<div class="<?= $estilo ?>"><?= isset($errores["email"]) ? $errores["email"] : "" ?></div>
-					<div class="campo">
-						<input type="email" name="email" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>" placeholder="e-Mail">
-					</div>
-					<div class="<?= $estilo ?>"><?= isset($errores["password"]) ? $errores["password"] : "" ?></div>
-					<div class="campo">
-						<input type="password" name="password" value="<?= isset($_POST["password"]) ? $_POST["password"] : "" ?>" placeholder="Contraseña">
-					</div>
-					<div class="<?= $estilo ?>"><?= isset($errores["passwordConfirm"]) ? $errores["passwordConfirm"] : "" ?></div>
-					<div class="campo">
-						<input type="password" name="passwordConfirm" value="<?= isset($_POST["passwordConfirm"]) ? $_POST["passwordConfirm"] : "" ?>" placeholder="Confirmar Contraseña">
+						<input type="text" name="usuario" value="<?= $usuario; ?>">
 					</div>
 					<div class="campo">
+						<input type="email" name="email" value="<?= $email ?>">
+					</div> -->
+					<!-- <div class="campo">
+						<input type="password" name="password" value="" placeholder="**************">
+					</div> -->
+					<!-- <div class="campo">
 						 <select name="pais">
 							<option value="" disabled>País</option>
 							<option value="DE">Alemania</option>
@@ -184,19 +170,14 @@
 							<option value="UY">Uruguay</option>
 							<option value="VE">Venezuela</option>
 						</select>
-					</div>
-					<div class="<?= $estilo ?>"><?= isset($errores["fotoUsuario"]) ? $errores["fotoUsuario"] : "" ?></div>
-					<div class="campo">
-						<input type="file" name="fotoUsuario" value="<?= isset($_FILES["fotoUsuario"]["name"]) ? $_FILES["fotoUsuario"]["name"] : "" ?>" accept="image/*">
-					</div>
-					<div class="campo">
-						<button type="submit" form="registro" value="registrarme">Registrarme</button>
-						<button type="reset" form="registro" value="reset">Borrar</button>
-					</div>
-				</form>
-				<div class="campo">
-					<p><em>*&nbsp; Todos los campos son requeridos.</em></p>
-				</div>
+					</div> -->
+					<!-- <div class="campo">
+                        //<input type="file" name="fotoUsuario" value="" accept="image/*">
+					</div> -->
+					<!-- <div class="campo">
+						<button type="submit" form="editar" value="editar">Guardar Cambios</button>
+					</div> -->
+				<!-- </form> -->
 			</section>
 		</article>
 	</main>

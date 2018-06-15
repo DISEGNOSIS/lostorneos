@@ -56,7 +56,7 @@
 				} else {
 			?>
 					<ul>
-					<li><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
+					<li class="activo"><a href="ingresa.php"><i class="fas fa-user"></i>&nbsp; Ingresá</a></li>
 					<li><a href="registrate.php"><i class="fas fa-user-plus"></i>&nbsp; Registrate</a></li>
 					</ul>
 			<?php
@@ -72,10 +72,10 @@
 		<nav class="main-nav">
 			 <ul>
 				<li><a href="index.php"><i class="fas fa-home"></i></a></li>
-				 <li><a href="buscar.php"><i class="fas fa-search"></i>&nbsp; Buscar</a></li>
-				 <li><a href="crear-torneo.php"><i class="fas fa-trophy"></i>&nbsp; Crear Torneo</a></li>
+				 <li><a href="#buscar.php"><i class="fas fa-search"></i>&nbsp; Buscar</a></li>
+				 <li><a href="#crear-torneo.php"><i class="fas fa-trophy"></i>&nbsp; Crear Torneo</a></li>
 				 <li><a href="faq.php"><i class="fas fa-question"></i>&nbsp; Ayuda</a></li>
-				 <li><a href="contacto.php"><i class="fas fa-envelope"></i></a></li>
+				 <li><a href="#contacto.php"><i class="fas fa-envelope"></i></a></li>
 			 </ul>
 		</nav>
 	</header>

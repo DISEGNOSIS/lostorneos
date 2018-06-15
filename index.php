@@ -40,7 +40,7 @@
 				if(isset($_SESSION["usuario"])) {
 					echo "<img src='" . $_SESSION["fotoUsuario"] . "' alt='Foto Perfil' class='fotoUsuario' />";
 					echo "<h4>Hola, " . $_SESSION["usuario"] . "!</h4>";
-					echo "<ul><li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li></ul>";
+					echo "<ul><li><a href='mi-cuenta.php'><i class='fas fa-user-edit'></i>&nbsp; Mi Cuenta</a></li><li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li></ul>";
 				} else {
 			?>
 					<ul>
@@ -60,10 +60,10 @@
 	 <nav class="main-nav">
 		 <ul>
 		 	<li class="activo"><a href="index.php"><i class="fas fa-home"></i></a></li>
-			 <li><a href="buscar.php"><i class="fas fa-search"></i>&nbsp; Buscar</a></li>
-			 <li><a href="crear-torneo.php"><i class="fas fa-trophy"></i>&nbsp; Crear Torneo</a></li>
+			 <li><a href="#buscar.php"><i class="fas fa-search"></i>&nbsp; Buscar</a></li>
+			 <li><a href="#crear-torneo.php"><i class="fas fa-trophy"></i>&nbsp; Crear Torneo</a></li>
 			 <li><a href="faq.php"><i class="fas fa-question"></i>&nbsp; Ayuda</a></li>
-			 <li><a href="contacto.php"><i class="fas fa-envelope"></i></a></li>
+			 <li><a href="#contacto.php"><i class="fas fa-envelope"></i></a></li>
 		 </ul>
 	 </nav>
 	</header>
