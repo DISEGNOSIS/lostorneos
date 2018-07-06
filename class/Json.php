@@ -60,7 +60,6 @@
             }
         }
         public function traerUsuario() {
-            session_start();
             $usuariosJSON=file_get_contents(self::ARCHIVO);
             $usuarios=json_decode($usuariosJSON,true);
             $usuarios=$usuarios["usuarios"];

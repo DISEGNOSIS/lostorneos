@@ -1,13 +1,12 @@
 <?php
-	require_once "class/Validar.php";
-    require_once "class/Json.php";
+	require_once "helpers.php";
+
 	$estilo = "";
 	if($_POST){
 		$validar = new Validar();
 		$errores = $validar->getErrorLogin();
 		if(empty($errores)) {
-			$json = new Json();
-			$errores["login"] = $json->existeUsuarioL();
+			$errores["login"] = $db->existeUsuarioL();
 			if(!empty($errores["login"])) {
 				$estilo = "error";
 			}
@@ -50,7 +49,6 @@
 			</div>
 			<nav class="usuarios">
 			<?php
-				session_start();
 				if(isset($_SESSION["usuario"])) {
 					header("Location: index.php?");
 				} else {

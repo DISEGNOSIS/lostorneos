@@ -1,7 +1,6 @@
 <?php
-	require_once "class/Usuario.php";
-	require_once "class/Validar.php";
-    require_once "class/Json.php";
+	require_once "helpers.php";
+	
 	$estilo = "";
 	if($_POST){
 		$validar = new Validar();
@@ -14,11 +13,10 @@
 			$pais = $_POST["pais"];
 			$fotoUsuario = $_FILES["fotoUsuario"];
 			$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);
-			$json = new Json();
-			$existeUsuario = $json->existeUsuarioR($nuevoUsuario);
+			$existeUsuario = $db->existeUsuarioR($nuevoUsuario);
 			if(empty($existeUsuario)) {
 				$nuevoUsuario->setFotoUsuario($fotoUsuario);
-				$json->guardarUsuario($nuevoUsuario);
+				$db->guardarUsuario($nuevoUsuario);
 				header("Location: gracias.php");
 			} else {
 				$estilo = "error";
@@ -62,7 +60,6 @@
 			</div>
 			<nav class="usuarios">
 			<?php
-				session_start();
 				if(isset($_SESSION["usuario"])) {
 					header("Location: index.php?");
 				} else {
