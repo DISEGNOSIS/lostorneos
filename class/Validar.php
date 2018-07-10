@@ -2,6 +2,7 @@
     class Validar {
         private $errorRegistro = [];
         private $errorLogin = [];
+        private $errorEditar = [];
 
         private function registro() {
             if(isset($_POST["usuario"]) || isset($_POST["email"]) || isset($_POST["password"]) || isset($_POST["passwordConfirm"]) || ($_FILES["fotoUsuario"]["error"] === UPLOAD_ERR_NO_FILE)) {
@@ -27,6 +28,7 @@
                 }
             } 
         }
+
         private function login() {
             if(isset($_POST["usuario"]) || isset($_POST["password"])) {
                 if(empty($_POST["usuario"])) {
@@ -37,13 +39,28 @@
                 }
             } 
         }
+
+        private function editar() {
+            if(isset($_POST["password"]) || isset($_POST["passwordConfirm"])) {
+                if($_POST["password"] != $_POST["passwordConfirm"]) {
+                    $this->errorEditar["passwordConfirm"] = "Las Contraseñas NO coiciden";
+                }
+            } 
+        }
+
         public function getErrorRegistro() {
             $this->registro();
             return $this->errorRegistro;
         }
+
         public function getErrorLogin() {
             $this->login();
             return $this->errorLogin;
+        }
+
+        public function getErrorEditar() {
+            $this->editar();
+            return $this->errorEditar;
         }
 
     }

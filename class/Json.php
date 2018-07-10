@@ -16,6 +16,7 @@
             $usuariosJSON=json_encode($usuarios);
             file_put_contents(self::ARCHIVO,$usuariosJSON);
         }
+
         public function existeUsuarioR(Usuario $usuario) {
             $existeUsuario=[];
             $usuariosJSON=file_get_contents(self::ARCHIVO);
@@ -32,6 +33,7 @@
             }
             return $existeUsuario;
         }
+
         public function existeUsuarioL() {
             $usuariosJSON=file_get_contents(self::ARCHIVO);
             $usuarios=json_decode($usuariosJSON,true);
@@ -59,6 +61,7 @@
                 return "Verificá los datos ingresados!";
             }
         }
+        
         public function traerUsuario() {
             $usuariosJSON=file_get_contents(self::ARCHIVO);
             $usuarios=json_decode($usuariosJSON,true);

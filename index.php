@@ -1,3 +1,7 @@
+<?php
+	require_once "helpers.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,17 +34,19 @@
 				<img src="img/logo.png" alt="Los Torneos" class="logo">
 			</a>
 		</div>
-		<nav class="usuarios">
+		<nav class="usuarios <?= isset($_SESSION['usuario']) ? 'subir' : '' ?>" >
 			<?php
-				session_start();
-				if(isset($_COOKIE["usuario"])) {
-					$_SESSION["usuario"] = $_COOKIE["usuario"];
-					$_SESSION["fotoUsuario"] = $_COOKIE["fotoUsuario"];
-				}
-				if(isset($_SESSION["usuario"])) {
-					echo "<img src='" . $_SESSION["fotoUsuario"] . "' alt='Foto Perfil' class='fotoUsuario' />";
-					echo "<h4>Hola, " . $_SESSION["usuario"] . "!</h4>";
-					echo "<ul><li><a href='mi-cuenta.php'><i class='fas fa-user-edit'></i>&nbsp; Mi Cuenta</a></li><li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li></ul>";
+				if(isset($_SESSION["usuario"])) { 
+			?>
+					<div class="usuario">
+						<img src="<?= $_SESSION['fotoUsuario'] ?>" alt="Foto Perfil" class="foto-usuario" />
+						<h4><?= $_SESSION["usuario"] ?></h4>
+					</div>
+					<ul>
+						<li><a href='mi-cuenta.php'><i class='fas fa-user-edit'></i>&nbsp; Mi Cuenta</a></li>
+						<li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li>
+					</ul>
+			<?php
 				} else {
 			?>
 					<ul>

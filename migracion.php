@@ -1,10 +1,29 @@
+<?php
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+
+	require_once "helpers.php";
+
+	$migracion = new Migracion();
+	if($_POST) {
+		if(isset($_POST["crearDB"])) {
+			$mensaje = $migracion->crearDB();
+		} elseif(isset($_POST["crearTablaUsuarios"])) {
+			$mensaje = $migracion->crearTablaUsuarios($db);
+		} elseif(isset($_POST["jsonToMysql"])) {
+			$mensaje = $migracion->jsonToMysql($db);
+		}
+
+	}	
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Gracias por Registrate en Los Torneos!</title>
+	<title>Los Torneos - Migración</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="fonts/css/fontawesome-all.css">
 	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
@@ -30,12 +49,19 @@
 					<img src="img/logo.png" alt="Los Torneos" class="logo">
 				</a>
 			</div>
-			<nav class="usuarios">
+			<nav class="usuarios <?= isset($_SESSION['usuario']) ? 'subir' : '' ?>" >
 			<?php
-				session_start();
-				if(isset($_SESSION["usuario"])) {
-					echo "<h4>Hola, " . $_SESSION["usuario"] . "!</h4>";
-					echo "<ul><li><a href='logout.php'><i class='fas fa-user'></i>&nbsp; Salir</a></li></ul>";
+				if(isset($_SESSION["usuario"])) { 
+			?>
+					<div class="usuario">
+						<img src="<?= $_SESSION['fotoUsuario'] ?>" alt="Foto Perfil" class="foto-usuario" />
+						<h4><?= $_SESSION["usuario"] ?></h4>
+					</div>
+					<ul>
+						<li class='activo'><a href='mi-cuenta.php'><i class='fas fa-user-edit'></i>&nbsp; Mi Cuenta</a></li>
+						<li><a href='logout.php'><i class='fas fa-user-times'></i>&nbsp; Salir</a></li>
+					</ul>
+			<?php
 				} else {
 			?>
 					<ul>
@@ -45,7 +71,7 @@
 			<?php
 				}
 			?>
-		</nav>
+			</nav>
 		</div>
 		<a href="#" class="toggle-nav">
 			<span class="ion-navicon-round">
@@ -64,7 +90,21 @@
 	</header>
 	<main>
 		<article>
-			<h1>¡Gracias por Registrarte!</h1>
+			<h1>Migración</h1>
+			<h2><?= $GLOBALS["mensaje"] ?></h2>
+			<section class="formulario">
+				<form action="" method="post" id="migracion">
+					<div class="campo">
+						<button type="submit" form="migracion" name="crearDB">Crear Base de Datos</button>
+					</div>
+					<div class="campo">
+						<button type="submit" form="migracion" name="crearTablaUsuarios">Crear la Tabla Usuarios</button>
+					</div>
+					<div class="campo">
+						<button type="submit" form="migracion" name="jsonToMysql">Migrar de JSON a MySQL</button>
+					</div>
+				</form>
+			</section>
 		</article>
 	</main>
 	<footer>

@@ -5,22 +5,27 @@
             session_start();
         }
 
-        public function login(Usuario $usuario) {
-
+        public function add($key, $value) {
+            $_SESSION[$key] = $value;
         }
 
-        public function estaLogueado() {
-            if(isset($_SESSION["usuario"]) && !empty($_SESSION["usuario"])) {
-                return true;
+        public function get($key) {
+            return (!empty($_SESSION[$key])) ? $_SESSION[$key] : null;
+        }
+
+        public function getAll() {
+            return $_SESSION;
+        }
+
+        public function remove($key) {
+            if(!empty($_SESSION[$key])) {
+                unset($_SESSION[$key]);
             }
-            return false;
         }
 
         public function logout() {
+            session_unset();
             session_destroy();
-            foreach($_COOKIE as $key => $value) {
-                setcookie($key, "", -1);
-            }
         }
     }
 ?>

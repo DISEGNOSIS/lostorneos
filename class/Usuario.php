@@ -1,6 +1,7 @@
 <?php
     class Usuario {
 
+        private $id;
         private $usuario;
         private $email;
         private $password;
@@ -24,8 +25,8 @@
                 $nombreNuevo = $original["tmp_name"];
                 $rutaFinal = "img/usr/";
                 $rutaFinal .= uniqid() . "." . $extension;
-                $archivoFinal = dirname(__FILE__) . "/" . $rutaFinal;
-                //$archivoFinal = dirname(__FILE__, 2) . "/" . $rutaFinal;
+                //$archivoFinal = dirname(__FILE__) . "/" . $rutaFinal;
+                $archivoFinal = dirname(__FILE__, 2) . "/" . $rutaFinal;
                 move_uploaded_file($nombreNuevo, $archivoFinal);
                 return $rutaFinal;
             }
@@ -46,7 +47,10 @@
             return $this->pais;
         }
         public function getFotoUsuario() {
-            return $this->fotoPerfil;
+            return $this->fotoUsuario;
+        }
+        public function getId() {
+            return $this->id;
         }
         public function setUsuario($usuario) {
             $this->usuario = $usuario;
@@ -55,13 +59,23 @@
             $this->email = $email;
         }
         public function setPassword($password) {
-            $this->password = $this->hashPassword($password);
+            if(substr($password, 0, 6) != "$2y$10") {
+                $this->password = $this->hashPassword($password);
+            } else {
+                $this->password = $password;
+            }
         }
         public function setPais($pais) {
             $this->pais = $pais;
         }
-        public function setFotoUsuario($fotoPerfil) {
-            $this->fotoPerfil = $this->guardarFotoUsuario($fotoPerfil);
+        public function setFotoUsuario($fotoUsuario) {
+            $this->fotoUsuario = $this->guardarFotoUsuario($fotoUsuario);
+        }
+        public function setRutaFotoUsuario($ruta) {
+            $this->fotoUsuario = $ruta;
+        }
+        public function setId($id) {
+            $this->id = $id;
         }
     }
 ?>

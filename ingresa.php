@@ -6,8 +6,30 @@
 		$validar = new Validar();
 		$errores = $validar->getErrorLogin();
 		if(empty($errores)) {
-			$errores["login"] = $db->existeUsuarioL();
-			if(!empty($errores["login"])) {
+			$usuarioTraido = $db->existeUsuarioL();
+			if($usuarioTraido != false) {
+				$usuario = $usuarioTraido["usuario"];
+				$email = $usuarioTraido["email"];
+				$password = $usuarioTraido["pass"];
+				$pais = $usuarioTraido["pais"];
+				$fotoUsuario = $usuarioTraido["foto_usuario"];
+				$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);
+				$nuevoUsuario->setRutaFotoUsuario($fotoUsuario);
+				$autorizado = $db->comprobarContraseña($nuevoUsuario);
+				if($autorizado) {
+					if(isset($_POST["recordarme"])) {
+						$cookie->add("usuario", $nuevoUsuario->getUsuario());
+						$cookie->add("fotoUsuario", $nuevoUsuario->getFotoUsuario());
+					}
+					$session->add("usuario", $nuevoUsuario->getUsuario());
+					$session->add("fotoUsuario", $nuevoUsuario->getFotoUsuario());
+                	header("Location: mi-cuenta.php");
+				} else {
+					$errores["login"] = "Verificá los datos ingresados!";
+					$estilo = "error";
+				}
+			} else {
+				$errores["login"] = "Verificá los datos ingresados!";
 				$estilo = "error";
 			}
 		} else {
@@ -50,7 +72,7 @@
 			<nav class="usuarios">
 			<?php
 				if(isset($_SESSION["usuario"])) {
-					header("Location: index.php?");
+					header("Location: index.php");
 				} else {
 			?>
 					<ul>

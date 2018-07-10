@@ -192,7 +192,7 @@ ol li {
 	display: none;
 }
 
-.fotoUsuario {
+.foto-usuario {
 	float: left;
 	width: 66px;
 	height: 66px;
@@ -203,8 +203,19 @@ ol li {
 	box-shadow: 3px 3px 6px #000;
 	margin-top: -13px;
 }
+
 .usuarios {
 	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.subir {
+	margin: -9px auto -17px;
+}
+
+.usuario {
+	align-self: center;
 }
 
 .usuarios h4 {
@@ -249,15 +260,15 @@ ol li {
 }
 
 .usuarios li:first-child:hover {
-  background: #FF8A07;
+  	background: #FF8A07;
 }
 
 .usuarios li:last-child:hover {
-  background: DodgerBlue;
+  	background: DodgerBlue;
 }
 
 .usuarios li a:hover {
-  color: #fff;
+  	color: #fff;
 	text-shadow: 1px 1px 2px #000;
 }
 
@@ -268,9 +279,9 @@ ol li {
 }
 
 .juegos img {
- width: 100%;
- max-width: 226px;
- height: auto;
+	width: 100%;
+	max-width: 226px;
+	height: auto;
 }
 
 footer {
@@ -317,7 +328,7 @@ footer .fecha {
  	align-items: center;
 }
 
-.imagenUsuario {
+.imagen-usuario {
 	width: 100%;
 	height: auto;
 	max-width: 266px;
@@ -329,17 +340,45 @@ footer .fecha {
 	margin-right: 22px;
 }
 
-.miCuenta {
+.mi-cuenta {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 33px;
 }
 
-.datosUsuario h2 {
+.editar {
+	float: right;
+	margin-right: 13px;
+	background: #00b549;
+	border-radius: 13px;
+	padding: 13px 22px;
+	margin-top: 13px;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+	box-shadow: 3px 3px 6px #000;
+}
+
+.editar:hover {
+	background: #00fa6b;
+}
+
+.editar a {
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: .06em;
+	text-shadow: 1px 1px 2px #000;
+}
+
+.editar a:hover{
+	color: #000;
+	text-shadow: 1px 1px 2px #fff;
+}
+
+.datos-usuario h2 {
 	text-align: left;
 }
 
-.datosUsuario h2 span {
+.datos-usuario h2 span {
 	color: #FFA933;
 }
 

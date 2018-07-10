@@ -9,7 +9,6 @@
 			$usuario = $_POST["usuario"];
 			$email = $_POST["email"];
 			$password = $_POST["password"];
-			$passwordConfirm = $_POST["passwordConfirm"];
 			$pais = $_POST["pais"];
 			$fotoUsuario = $_FILES["fotoUsuario"];
 			$nuevoUsuario = new Usuario($usuario, $email, $password, $pais);
@@ -17,7 +16,9 @@
 			if(empty($existeUsuario)) {
 				$nuevoUsuario->setFotoUsuario($fotoUsuario);
 				$db->guardarUsuario($nuevoUsuario);
-				header("Location: gracias.php");
+				$session->add("usuario", $nuevoUsuario->getUsuario());
+				$session->add("fotoUsuario", $nuevoUsuario->getFotoUsuario());
+				header("Location: mi-cuenta.php");
 			} else {
 				$estilo = "error";
 			}
@@ -61,7 +62,7 @@
 			<nav class="usuarios">
 			<?php
 				if(isset($_SESSION["usuario"])) {
-					header("Location: index.php?");
+					header("Location: index.php");
 				} else {
 			?>
 					<ul>
@@ -127,6 +128,7 @@
 							<option value="BR">Brasil</option>
 							<option value="CA">Canadá</option>
 							<option value="CL">Chile</option>
+							<option value="CN">China</option>
 							<option value="CO">Colombia</option>
 							<option value="CR">Costa Rica</option>
 							<option value="HR">Croacia</option>
@@ -177,7 +179,7 @@
 							<option value="DO">República Dominicana</option>
 							<option value="RU">Rusia</option>
 							<option value="SE">Suecia</option>
-							<option value="CH">Suiza</option>
+							<option value="SW">Suiza</option>
 							<option value="UY">Uruguay</option>
 							<option value="VE">Venezuela</option>
 						</select>

@@ -1,6 +1,7 @@
 <?php
-    session_destroy();
-    setcookie("usuario", $usuario["usuario"], time()-1);
-    setcookie("fotoUsuario", $usuario["fotoUsuario"], time()-1);
+    require_once "helpers.php";
+
+    $session->logout();
+    $cookie->logout();
     header("Location: index.php?");
 ?>
