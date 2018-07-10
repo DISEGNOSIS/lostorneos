@@ -493,6 +493,10 @@ footer .fecha {
 }
 
 @media only screen and (max-width: 1026px) {
+	
+	.subir {
+		margin: 9px auto 0;
+	}
 
  	.usuarios li {
  		font-size: .6em;
@@ -518,10 +522,11 @@ footer .fecha {
  		font-size: .7em;
 	}
 	
-  .juegos {
+  	.juegos {
 		flex-flow: row wrap;
 		justify-content:center;
-	 }
+	}
+
 	header .fecha {
 		display: none;
 	}
@@ -579,7 +584,7 @@ footer .fecha {
 
  	.logo {
 		max-width: 366px;
-  }
+  	}
 
 	 .usuarios ul {
 		  flex-flow: column nowrap;
@@ -611,40 +616,40 @@ footer .fecha {
 
 @media only screen and (max-width: 620px) {
 
-  .container {
-	  width: 95%;
-  }
+	.container {
+		width: 95%;
+	}
 
-  .toggle-nav {
+	.toggle-nav {
+			align-self: center;
+			display: flex;
+			justify-content: center;
+			background: #222;
+			width: 47px;
+			height: 47px;
+			color: #fff;
+			cursor: pointer;
+			margin-bottom: 6px;
+	}
+
+  	.ion-navicon-round {
+		display: inherit;
 		align-self: center;
-		display: flex;
-		justify-content: center;
-		background: #222;
-		width: 47px;
-		height: 47px;
-		color: #fff;
-		cursor: pointer;
-		margin-bottom: 6px;
-  }
+	}
 
-  .ion-navicon-round {
-	  display: inherit;
-	  align-self: center;
-  }
+	.main-nav ul {
+			flex-flow: column;
+	}
 
-  .main-nav ul {
- 	 	flex-flow: column;
-  }
+	.main-nav {
+			display: none;
+	}
 
-  .main-nav {
-		display: none;
-  }
-
-  .main-nav li {
-		width: 90%;
-		margin: 0 auto 13px;
-		border-bottom: 1px solid rgba(255,255,255,0.1);
- }
+	.main-nav li {
+			width: 90%;
+			margin: 0 auto 13px;
+			border-bottom: 1px solid rgba(255,255,255,0.1);
+	}
 
 	.main-nav li:first-child {
 		margin-left: auto;
@@ -654,12 +659,12 @@ footer .fecha {
 
 @media only screen and (max-width: 485px) {
 
-header .fila {
-	display: flex;
- 	flex-flow: column wrap;
- 	justify-content: space-between;
- 	align-items: center;
- }
+	header .fila {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	#logo {
 		margin-bottom: 22px;
@@ -696,6 +701,7 @@ header .fila {
 	h1 {
 		text-align: left;
 	}
+
 	.campo {
 		width: 72%;
 	}
