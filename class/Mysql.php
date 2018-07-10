@@ -6,7 +6,7 @@
         public function __construct() {
             $dsn = "mysql:host=localhost;dbname=lostorneos;charset=utf8mb4";
             $user = "root";
-            $pass = "";
+            $pass = "root";
             $this->conexion = new PDO($dsn, $user, $pass);
         }
 
